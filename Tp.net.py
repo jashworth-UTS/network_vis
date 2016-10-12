@@ -100,7 +100,7 @@ for i in range(g.vcount()):
 pk.dump(g, open('graph.p','bw'))
 
 print('Layout...(creating graph layout--slow)')
-#ly=g.layout('kk3d')
+ly=g.layout('kk3d')
 #ly=g.layout('fr3d')
 
 pk.dump(ly, open('layout.p','bw'))
