@@ -95,7 +95,7 @@ g.es['color'] = "#888888"
 for i in range(g.vcount()):
 	g.vs[i]["label"] = names[i]
 	g.vs[i]["group"] = groupnames[i]
-	g.vs[i]["color"] = [ i*255 for i in colorkey[groupnames[i]] ]
+	g.vs[i]["color"] = [ j*255 for j in colorkey[groupnames[i]] ]
 
 pk.dump(g, open('graph.p','bw'))
 
