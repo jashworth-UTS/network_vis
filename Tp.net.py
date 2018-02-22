@@ -97,13 +97,13 @@ for i in range(g.vcount()):
 	g.vs[i]["group"] = groupnames[i]
 	g.vs[i]["color"] = [ j*255 for j in colorkey[groupnames[i]] ]
 
-pk.dump(g, open('graph.p','bw'))
+pk.dump(g, open('graph.p','wb'))
 
 print('Layout...(creating graph layout--slow)')
 ly=g.layout('kk3d')
 #ly=g.layout('fr3d')
 
-pk.dump(ly, open('layout.p','bw'))
+pk.dump(ly, open('layout.p','wb'))
 
 to_ply(g,ly,open('nw.ply','w'))
 to_json(g,ly,open('nw.json','w'))
