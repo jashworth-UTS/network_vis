@@ -50,17 +50,19 @@ ef = 'Tp.edges'
 
 # read and 0-index nodes
 nodes = {}
-names = []
+geneids = []
+labels = []
 groupnames = []
 ind = 0
 for l in open(nf):
 	w = l.strip().split()
 	print(w)
-	name = w[0]
+	geneid = w[0]
 	if len(w) < 6: group = ''
 	else: group = w[5]
-	nodes[name] = ind
-	names.append('%s: %s' %(name,group))
+	nodes[geneid] = ind
+	geneids.append(geneid)
+	labels.append('%s: %s' %(geneid,group))
 	groupnames.append(group)
 	ind = ind+1
 
@@ -93,7 +95,8 @@ g.es['color'] = "#888888"
 
 # add vertex attributes
 for i in range(g.vcount()):
-	g.vs[i]["label"] = names[i]
+	g.vs[i]["geneid"] = geneids[i]
+	g.vs[i]["label"] = labels[i]
 	g.vs[i]["group"] = groupnames[i]
 	g.vs[i]["color"] = [ j*255 for j in colorkey[groupnames[i]] ]
 
